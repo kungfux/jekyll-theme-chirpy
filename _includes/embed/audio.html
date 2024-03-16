@@ -1,0 +1,15 @@
+{% assign audio_url = include.src %}
+
+{% unless audio_url contains '://' %}
+  {%- capture audio_url -%}
+    {% include img-url.html src=audio_url img_path=page.img_path %}
+  {%- endcapture -%}
+{% endunless %}
+
+<p>
+  <audio class="embed-audio" src="{{ audio_url }}" controls>
+    Your browser doesn't support this audio. Here is a
+    <a href="{{ audio_url }}">link to the audio file</a> instead.
+  </audio>
+  <em>{{ include.title }}</em>
+</p>

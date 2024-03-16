@@ -448,10 +448,12 @@ The following table shows how to get the two parameters we need in a given video
 If you want to embed a video file directly, use the following syntax:
 
 ```liquid
-{% include embed/video.html src='{URL}' %}
+{% include embed/video.html src='/path/to/video/video.mp4' %}
 ```
 
-Where `URL` is an URL to a video file e.g. `/assets/img/sample/video.mp4`.
+> It's not recommended to host video files in `assets` folder as they cannot be cached by PWA and may cause issues.
+> Instead, use CDN to host video files. Alternatively, use a separate folder that is excluded from PWA (see `pwa.deny_paths` setting in `_config.yml`).
+{: .prompt-warning }
 
 You can also specify additional attributes for the embedded video file. Here is a full list of attributes allowed.
 
@@ -467,6 +469,18 @@ Consider an example utilizing all of the above:
 {% include embed/video.html src='video.mp4' poster='poster.png' title='Demo video'
    autoplay=true loop=true muted=true %}
 ```
+
+## Audio
+
+You can embed an audio with the following syntax:
+
+```liquid
+{% include embed/audio.html src='/path/to/audio/audio.mp3' title='Demo audio' %}
+```
+
+> It's not recommended to host audio files in `assets` folder as they cannot be cached by PWA and may cause issues.
+> Instead, use CDN to host audio files. Alternatively, use a separate folder that is excluded from PWA (see `pwa.deny_paths` setting in `_config.yml`).
+{: .prompt-warning }
 
 ## Learn More
 
