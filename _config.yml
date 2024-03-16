@@ -85,7 +85,7 @@ theme_mode: # [light | dark]
 # will be added to all image (site avatar & posts' images) paths starting with '/'
 #
 # e.g. 'https://cdn.com'
-img_cdn: "https://chirpy-img.netlify.app"
+img_cdn:
 
 # the avatar on sidebar, support local or CORS resources
 avatar: "/commons/avatar.jpg"
@@ -134,6 +134,7 @@ pwa:
     # Usually its value is the `baseurl` of another website that
     # shares the same domain name as the current website.
     deny_paths:
+      "/assets/example"
       # - "/example"  # URLs match `<SITE_URL>/example/*` will not be cached by the PWA
 
 paginate: 10
