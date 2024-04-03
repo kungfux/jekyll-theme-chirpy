@@ -80,12 +80,18 @@ pageviews:
 #
 theme_mode: # [light | dark]
 
-# The CDN endpoint for images.
-# Notice that once it is assigned, the CDN url
-# will be added to all image (site avatar & posts' images) paths starting with '/'
-#
-# e.g. 'https://cdn.com'
-img_cdn: "https://chirpy-img.netlify.app"
+# Media files configuration
+media:
+  # Use CDN for media files e.g. "https://cdn.example.com"
+  # If defined, CDN URL will be added to all image (site avatar & posts images) paths starting with '/'
+  cdn: "https://chirpy-img.netlify.app"
+  # Default path bases for images/videos/audios e.g. "/assets/images"
+  # Can be extended by img_path/video_path/audio_path variables from post front matter
+  # like site.base_paths.img_path + post.img_path
+  base_path:
+    img: "/assets/images"
+    video: &video_base_path "/assets/video"
+    audio: &audio_base_path "/assets/audio"
 
 # the avatar on sidebar, support local or CORS resources
 avatar: "/commons/avatar.jpg"
@@ -136,6 +142,8 @@ pwa:
     # shares the same domain name as the current website.
     deny_paths:
       # - "/example"  # URLs match `<SITE_URL>/example/*` will not be cached by the PWA
+      - *video_base_path
+      - *audio_base_path
 
 paginate: 10
 
