@@ -55,6 +55,10 @@
     -ms-user-select: none;
     user-select: none;
   }
+
+  .hll {
+    background-color: var(--highlight-mark-line-color);
+  }
 } /* .highlight */
 
 code {
